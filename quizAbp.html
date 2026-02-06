@@ -1,31 +1,38 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
-    <title>Dieren weetjes quiz</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dieren Weetjes Quiz</title>
     <style>
         .centreren {
             text-align: center;
             margin-top: 20%;
         }
+        button {
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        #feedback {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        #score {
+            margin-top: 15px;
+            font-size: 18px;
+        }
     </style>
-
 </head>
 <body>
-
     <div class="centreren">
-        <h1>🐸🐻🦒🐘 Dieren weetjes quiz 🐶🐒🦁🐢</h1>
-
-        
-        <p id="vraag"></p>      
-
+        <h1>🐸🐻🦒🐘 Dieren Weetjes Quiz 🐶🐒🦁🐢</h1>
+        <p id="vraag">Hier verschijnt de vraag</p>
         <div id="keuzes"></div>
-        
-        <p id="resultaat"></p>
+        <p id="feedback">Feedback verschijnt hier</p>
+        <p id="score">Score: 0</p>
+        <button id="volgende">Volgende vraag</button>
     </div>
-
     <script src="Quiz.js"></script>
 </body>
 </html>
-
