@@ -2,22 +2,22 @@ const vragen = [
     {
         vraag: 'Welk dier kan zichzelf letterlijk weer jong maken en is dus onsterfelijk?',
         keuzes:['Een octopus', 'Een kwal','Een schildpad'],
-        correct: 2 
+        correct: 1 
     },
     {
         vraag:'Welke hagedissensoort bestaat alleen uit vrouwtjes en plant zich voort zonder mannetjes?',
         keuzes:['New Mexico Whiptail','Komodovaraan','Kameleon'],
-        correct: 1
+        correct: 0
     },
     {
         vraag: 'Welk dier heeft 24 echte ogen, waaronder lenzen die kleuren en scherpe beelden zien, en deze ogen actief gebruikt om mee te jaagt?',
         keuzes:['Box jellyfish','Inktvis', 'Ubuntu Rups'],
-        correct: 1
+        correct: 0
     },
     {
         vraag: 'Welke vogel vliegt non-stop meer dan 11.000 km zonder te landen, eten of drinken, en krimpt daarbij zijn organen deels?',
         keuzes:['Reuzen albatros','Bar-tailed godwit','Kasuarissen'],
-        correct: 2
+        correct: 1
     },
     {
         vraag: 'Welk dier is gefilmd terwijl het bewust een giftige kogelvis (pufferfish) plaagt om een kleine dosis neurotoxine vrij te maken, zodat ze high raken en ze geven de vis zelfs door aan elkaar alsof het een joint is?',
