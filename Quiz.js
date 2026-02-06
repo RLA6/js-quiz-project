@@ -2,7 +2,7 @@ const vragen = [
     {
         vraag: 'Welk dier kan zichzelf letterlijk weer jong maken en is dus onsterfelijk?',
         keuzes:['Een octopus', 'Een kwal','Een schildpad'],
-        correct: 1 
+        correct: 1
     },
     {
         vraag:'Welke hagedissensoort bestaat alleen uit vrouwtjes en plant zich voort zonder mannetjes?',
@@ -26,59 +26,56 @@ const vragen = [
     }
 ];
 
+let huidigeVraag = 0;
+let score = 0;
 
-let huidigeVraag = 0; 
-let score = 0;        
-
-
-const vraagElement = document.getElementById("vraag");         
-const keuzesElement = document.getElementById("keuzes");       
-const resultaatElement = document.getElementById("resultaat"); 
-
+const vraagElement = document.getElementById("vraag");
+const keuzesElement = document.getElementById("keuzes");
+const resultaatElement = document.getElementById("score");
+const feedbackElement = document.getElementById("feedback");
+const volgendeKnop = document.getElementById("volgende");
 
 function toonVraag() {
-   
     keuzesElement.innerHTML = '';
-
+    feedbackElement.textContent = '';
     const actieveVraag = vragen[huidigeVraag];
-
     vraagElement.textContent = actieveVraag.vraag;
 
     for (let i = 0; i < actieveVraag.keuzes.length; i++) {
-        const knop = document.createElement("button"); 
-        knop.textContent = actieveVraag.keuzes[i];     
-
+        const knop = document.createElement("button");
+        knop.textContent = actieveVraag.keuzes[i];
         knop.addEventListener('click', function() {
-            antwoordControle(i); 
+            antwoordControle(i);
         });
-
         keuzesElement.appendChild(knop);
-        keuzesElement.appendChild(document.createElement("br")); 
+        keuzesElement.appendChild(document.createElement("br"));
     }
 }
 
 function antwoordControle(gekozenIndex) {
-
-    if (gekozenIndex === vragen[huidigeVraag].correct) {
-        score++; 
-    }
-
-    huidigeVraag++;
-
-    if (huidigeVraag < vragen.length) {
-        toonVraag(); 
+    const juisteIndex = vragen[huidigeVraag].correct;
+    if (gekozenIndex === juisteIndex) {
+        score++;
+        feedbackElement.textContent = "Goed! ✅";
     } else {
-        toonResultaat();
+        feedbackElement.textContent = "Fout! ❌";
+    }
+    const knoppen = keuzesElement.querySelectorAll("button");
+    knoppen.forEach(knop => knop.disabled = true);
+    resultaatElement.textContent = "Score: " + score;
+}
+
+function volgendeVraag() {
+    huidigeVraag++;
+    if (huidigeVraag < vragen.length) {
+        toonVraag();
+    } else {
+        vraagElement.textContent = "De quiz is afgelopen!";
+        keuzesElement.innerHTML = '';
+        feedbackElement.textContent = '';
     }
 }
 
-function toonResultaat() {
+volgendeKnop.addEventListener("click", volgendeVraag);
 
-    vraagElement.textContent = "De quiz is afgelopen!";
-
-    keuzesElement.innerHTML = "";
-
-    resultaatElement.textContent = "Je score is: " + score + " van de " + vragen.length;
-}
-
-toonVraag(); 
+toonVraag();
